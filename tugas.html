@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Client Interface</title>
+    <link rel="stylesheet" href="tugas.css">
+</head>
+<body>
+    <!-- Container Utama -->
+    <div class="container">
+        <header>
+            <h1>Network Client Interface</h1>
+            <p>Berkomunikasi dengan server melalui protokol TCP/UDP.</p>
+        </header>
+        
+        <!-- Area Input -->
+        <section class="input-area">
+            <label for="message">Kirim Pesan ke Server:</label>
+            <textarea id="message" placeholder="Tulis pesan Anda di sini..."></textarea>
+            <button id="sendButton" onclick="sendMessage()">Kirim Pesan</button>
+        </section>
+
+        <!-- Area Output -->
+        <section class="output-area">
+            <h2>Respons dari Server:</h2>
+            <div id="responseBox">Belum ada respons...</div>
+        </section>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            const responseBox = document.getElementById('responseBox');
+
+            // Simulasi respons server (placeholder)
+            if (message.trim() === "") {
+                alert("Pesan tidak boleh kosong!");
+                return;
+            }
+
+            // Mengubah konten respons sebagai contoh (nanti diganti WebSocket)
+            responseBox.innerHTML = `<p><strong>Pesan terkirim:</strong> ${message}</p>`;
+            setTimeout(() => {
+                responseBox.innerHTML += `<p><strong>Respons Server:</strong> Pesan "${message}" diterima!</p>`;
+            }, 1000);
+
+            // Kosongkan textarea
+            document.getElementById('message').value = "";
+        }
+    </script>
+</body>
+</html>
